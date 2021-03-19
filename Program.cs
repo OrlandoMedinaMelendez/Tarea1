@@ -1,23 +1,40 @@
 ﻿using System;
 using Tarea1.Models;
+using Tarea1.Back_End;
 using System.Linq;
 
 namespace Tarea1
 {
     class Program
     {
-        public static void exercise()
+        public static EmployeeSC employeeService = new EmployeeSC();
+        public static OrderSC orderService = new OrderSC();
+        public static ProductSC productService = new ProductSC();
+
+        #region Functions
+
+        public static void AddEmployee()
         {
-            NorthwindContext dataContext = new NorthwindContext();
+            var newEmployeeAdd = new Employee();
 
-            var employeeQuery = dataContext.Employees.Select(s => s).AsQueryable();
+            newEmployeeAdd.FirstName = "Nimani";
+            newEmployeeAdd.LastName = "Bravo";
 
-            var output = employeeQuery.ToList();
+            employeeService.AddEmployee(newEmployeeAdd);
         }
 
+        public static void UpdateEmployee()
+        {
+            employeeService.UpdateNameEmployeeById(1, "Jorge");
+        }
+
+        #endregion
+
+        
         static void Main(string[] args)
         {
-            exercise();
+            //AddEmployee();
+            //UpdateEmployee();
         }
     }
 }
