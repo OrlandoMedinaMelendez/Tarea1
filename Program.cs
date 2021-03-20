@@ -30,6 +30,8 @@ namespace Tarea1
             employeeService.UpdateNameEmployeeById(1, "Jorge", "Martinez");
         }
 
+
+
         #endregion
 
         #region OrderFunctions
@@ -71,6 +73,11 @@ namespace Tarea1
         {
             AddEmployee();
             UpdateEmployee();
+
+            AddOrder();
+            UpdateOrder();
         }
+
+        
     }
 }
