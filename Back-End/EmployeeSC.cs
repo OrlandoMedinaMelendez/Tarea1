@@ -13,12 +13,6 @@ namespace Tarea1.Back_End
         {    
             return dataContext.Employees.AsQueryable(); 
         }
-
-        public Employee GetEmployeeByName(String name)
-        {
-            return GetEmployees().Where(x => x.FirstName == name).First();
-        }
-
         
         public Employee GetEmployeeById(int id)
         {
@@ -37,10 +31,11 @@ namespace Tarea1.Back_End
 
         }
 
-        public void UpdateNameEmployeeById(int id, String name)
+        public void UpdateNameEmployeeById(int id, String name, String lastName)
         {
             var currentEmployee = new EmployeeSC().GetEmployeeById(id);
             currentEmployee.FirstName = name;
+            currentEmployee.LastName = lastName;
             dataContext.Employees.Update(currentEmployee);
             dataContext.SaveChanges();
         }

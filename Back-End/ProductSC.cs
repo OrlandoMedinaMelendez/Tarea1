@@ -8,6 +8,9 @@ namespace Tarea1.Back_End
 {
     class ProductSC : BaseSC
     {
-        
+        public void main()
+        {
+
+        }
     }
 }
