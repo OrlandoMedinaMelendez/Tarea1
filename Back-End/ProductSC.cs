@@ -42,22 +42,5 @@ namespace Tarea1.Back_End
             dataContext.Products.Update(currentProduct);
             dataContext.SaveChanges();
         }
-
-        /*
-        public void UpdateProductNameById(int id, String newName)
-        {
-            var currentProduct = new ProductSC().GetProductById(id);
-            currentProduct.ProductName = newName;
-            dataContext.Products.Update(currentProduct);
-            dataContext.SaveChanges();
-        }
-        */
-
     }
 }
-
-
-
-
-
-

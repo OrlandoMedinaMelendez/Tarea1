@@ -32,26 +32,13 @@ namespace Tarea1.Back_End
 
         }
 
-        /*
-        public void UpdateNameEmployeeById(int id, String name, String lastName)
-        {
-            var currentEmployee = new EmployeeSC().GetEmployeeById(id);
-            currentEmployee.FirstName = name;
-            currentEmployee.LastName = lastName;
-            dataContext.Employees.Update(currentEmployee);
-            dataContext.SaveChanges();
-        }
-        */
-
-        // Funcion que obtiene todos los empleados en la ciudad de Londres
-        
         public void getAllLondonEmployees()
         {
             var employeeQuery = dataContext.Employees.Select(s => s).Where(w => w.City == "London").AsQueryable();
             var output = employeeQuery.ToList();
         }
 
-        // Funcion para asignar la región 'North' a todos los empleados que dependen del empleado del ID dado        
+        
         public void getAllNorthEmployees(int id)
         {
             List<Employee> reportsToEmployee = GetEmployeeReportsTo(id);
@@ -67,7 +54,6 @@ namespace Tarea1.Back_End
             dataContext.SaveChanges();
         }
 
-        // Funcion para obterner una lista de empleados que se reportan con el empleado del ID dado
         private List<Employee> GetEmployeeReportsTo(int id)
         {
             return dataContext.Employees.Select(s => s).Where(w => w.ReportsTo == id).ToList();
