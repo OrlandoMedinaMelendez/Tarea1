@@ -8,10 +8,10 @@ using Tarea1.Models;
 
 namespace Tarea1.Back_End
 {
-    class ProductSC : BaseSC, IRead, IWrite
+    class ProductSC : BaseSC, IUpdate
     {
 
-       /*public IQueryable<Product> GetProducts()
+       public IQueryable<Product> GetProducts()
         {
             return dataContext.Products.AsQueryable();
         }
@@ -20,7 +20,7 @@ namespace Tarea1.Back_End
         {
             return GetProducts().Where(x => x.ProductName == productName).First();
         }
-       */
+       
         public Product GetProductById(int id)
         {
             return GetProducts().Where(x => x.ProductId == id).First();
@@ -35,6 +35,15 @@ namespace Tarea1.Back_End
             dataContext.SaveChanges();
         }
 
+        public void UpdateNameById(int id, string name)
+        {
+            var currentProduct = new ProductSC().GetProductById(id);
+            currentProduct.ProductName = name;
+            dataContext.Products.Update(currentProduct);
+            dataContext.SaveChanges();
+        }
+
+        /*
         public void UpdateProductNameById(int id, String newName)
         {
             var currentProduct = new ProductSC().GetProductById(id);
@@ -42,25 +51,13 @@ namespace Tarea1.Back_End
             dataContext.Products.Update(currentProduct);
             dataContext.SaveChanges();
         }
+        */
 
-        public void GetAll()
-        {
-            return dataContext.Products.AsQueryable();
-        }
-
-        public void GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Create(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
+
+
+
+
+
+

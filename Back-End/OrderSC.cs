@@ -7,7 +7,7 @@ using Tarea1.Models;
 
 namespace Tarea1.Back_End
 {
-    class OrderSC : BaseSC, IRead, IWrite
+    class OrderSC : BaseSC, IUpdate
     {
 
         public IQueryable<Order> GetOrders()
@@ -31,32 +31,12 @@ namespace Tarea1.Back_End
             dataContext.SaveChanges();
         }
 
-        public void UpdateShipNameOrderById(int id, String shipName)
+        public void UpdateNameById(int id, string name)
         {
             var currentOrder = new OrderSC().GetOrderById(id);
-            currentOrder.ShipName = shipName;
+            currentOrder.ShipName = name;
             dataContext.Orders.Update(currentOrder);
             dataContext.SaveChanges();
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Create(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetById(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

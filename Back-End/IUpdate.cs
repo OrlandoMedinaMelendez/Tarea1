@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Tarea1.Back_End
 {
-    interface IRead
+    interface IUpdate
     {
-        public Object GetAll();
-        public Object GetById(int id);
+        public void UpdateNameById(int id, String name);
     }
 }

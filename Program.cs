@@ -27,10 +27,8 @@ namespace Tarea1
 
         public static void UpdateEmployee()
         {
-            employeeService.UpdateNameEmployeeById(1, "Jorge", "Martinez");
+            employeeService.UpdateNameById(1, "Andres");
         }
-
-
 
         #endregion
 
@@ -50,32 +48,28 @@ namespace Tarea1
 
         public static void UpdateOrder()
         {
-            orderService.UpdateShipNameOrderById(10248, "Rio Bravo");
+            orderService.UpdateNameById(10248, "Rio Bravo");
         }
 
         #endregion
 
         #region ProductFunctions
 
-        public static void AddProduct()
-        {
-
-        }
-
         public static void UpdateProduct()
         {
-
+            productService.UpdateNameById(1, "Queso Oaxaca");
         }
 
         #endregion
 
         static void Main(string[] args)
         {
-            AddEmployee();
+            
             UpdateEmployee();
 
-            AddOrder();
             UpdateOrder();
+
+            UpdateProduct();
         }
 
         
